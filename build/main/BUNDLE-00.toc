@@ -1,0 +1,3 @@
+([('main',
+   '/Users/sprackles/PycharmProjects/Service-Checker/dist/main',
+   'EXECUTABLE')],)
