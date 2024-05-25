@@ -52,21 +52,20 @@ class ServiceCheckerApp:
         self.interval_entry = ttk.Entry(root, textvariable=self.interval_var, width=30)
         self.interval_entry.grid(row=2, column=1, padx=5, pady=5)
 
-        ttk.Label(root, text="Services to Check:").grid(row=3, column=0, columnspan=2, pady=5)
+        ttk.Label(root, text="Custom Port:").grid(row=3, column=0, padx=5, pady=5, sticky='w')
+        self.custom_port_entry = ttk.Entry(root, textvariable=self.custom_port_var, width=30)
+        self.custom_port_entry.grid(row=3, column=1, padx=5, pady=5)
 
-        self.service_row_start = 4
+        ttk.Button(root, text="Add Custom Port", command=self.add_custom_port).grid(row=4, column=0, columnspan=2,
+                                                                                    pady=5)
+
+        ttk.Label(root, text="Services to Check:").grid(row=5, column=0, columnspan=2, pady=5)
+
+        self.service_row_start = 6
         self.display_services()
 
-        ttk.Label(root, text="Custom Port:").grid(row=self.service_row_start + len(self.services), column=0, padx=5,
-                                                  pady=5, sticky='w')
-        self.custom_port_entry = ttk.Entry(root, textvariable=self.custom_port_var, width=30)
-        self.custom_port_entry.grid(row=self.service_row_start + len(self.services), column=1, padx=5, pady=5)
-
-        ttk.Button(root, text="Add Custom Port", command=self.add_custom_port).grid(
-            row=self.service_row_start + len(self.services) + 1, column=0, columnspan=2, pady=5)
-
         self.start_button = ttk.Button(root, text="Start Checking", command=self.toggle_checking)
-        self.start_button.grid(row=self.service_row_start + len(self.services) + 2, column=0, columnspan=6, pady=10)
+        self.start_button.grid(row=self.service_row_start + len(self.services) + 1, column=0, columnspan=6, pady=10)
 
         self.running = False
 
