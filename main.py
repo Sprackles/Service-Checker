@@ -23,9 +23,6 @@ class ServiceCheckerApp:
         # Variables
         self.hostname_var = tk.StringVar()
         self.interval_var = tk.StringVar(value='5')
-        self.status_var = tk.StringVar(value='Unknown')
-        self.success_var = tk.IntVar(value=0)
-        self.fail_var = tk.IntVar(value=0)
         self.custom_port_var = tk.StringVar()
 
         self.services = {
@@ -38,6 +35,9 @@ class ServiceCheckerApp:
 
         self.service_vars = {service: tk.BooleanVar(value=True) for service in self.services}
         self.custom_ports = []
+        self.status_labels = {}
+        self.success_vars = {}
+        self.fail_vars = {}
 
         # Layout
         ttk.Label(root, text="Hostname or IP:").grid(row=0, column=0, padx=5, pady=5, sticky='w')
@@ -53,7 +53,20 @@ class ServiceCheckerApp:
         row = 3
         for service, port in self.services.items():
             checkbutton = ttk.Checkbutton(root, text=f"{service} (Port {port})", variable=self.service_vars[service])
-            checkbutton.grid(row=row, column=0, columnspan=2, padx=5, pady=2, sticky='w')
+            checkbutton.grid(row=row, column=0, padx=5, pady=2, sticky='w')
+
+            self.status_labels[service] = tk.Label(root, bg='red', width=2)
+            self.status_labels[service].grid(row=row, column=1, padx=5, pady=2, sticky='w')
+
+            self.success_vars[service] = tk.IntVar(value=0)
+            self.fail_vars[service] = tk.IntVar(value=0)
+
+            ttk.Label(root, text="Success:").grid(row=row, column=2, padx=5, pady=2, sticky='e')
+            ttk.Label(root, textvariable=self.success_vars[service]).grid(row=row, column=3, padx=5, pady=2, sticky='w')
+
+            ttk.Label(root, text="Fail:").grid(row=row, column=4, padx=5, pady=2, sticky='e')
+            ttk.Label(root, textvariable=self.fail_vars[service]).grid(row=row, column=5, padx=5, pady=2, sticky='w')
+
             row += 1
 
         ttk.Label(root, text="Custom Port:").grid(row=row, column=0, padx=5, pady=5, sticky='w')
@@ -63,17 +76,8 @@ class ServiceCheckerApp:
         ttk.Button(root, text="Add Custom Port", command=self.add_custom_port).grid(row=row + 1, column=0, columnspan=2,
                                                                                     pady=5)
 
-        ttk.Button(root, text="Start Checking", command=self.start_checking).grid(row=row + 2, column=0, columnspan=2,
+        ttk.Button(root, text="Start Checking", command=self.start_checking).grid(row=row + 2, column=0, columnspan=6,
                                                                                   pady=10)
-
-        ttk.Label(root, text="Current Status:").grid(row=row + 3, column=0, padx=5, pady=5, sticky='w')
-        ttk.Label(root, textvariable=self.status_var).grid(row=row + 3, column=1, padx=5, pady=5, sticky='w')
-
-        ttk.Label(root, text="Successful Attempts:").grid(row=row + 4, column=0, padx=5, pady=5, sticky='w')
-        ttk.Label(root, textvariable=self.success_var).grid(row=row + 4, column=1, padx=5, pady=5, sticky='w')
-
-        ttk.Label(root, text="Unsuccessful Attempts:").grid(row=row + 5, column=0, padx=5, pady=5, sticky='w')
-        ttk.Label(root, textvariable=self.fail_var).grid(row=row + 5, column=1, padx=5, pady=5, sticky='w')
 
         self.running = False
 
@@ -118,17 +122,17 @@ class ServiceCheckerApp:
                     result = s.connect_ex((ip_address, port))
                     s.close()
                     if result == 0:
-                        self.status_var.set(f"{service} Running (Host: {hostname}, IP: {ip_address}, Port: {port})")
-                        self.success_var.set(self.success_var.get() + 1)
+                        self.status_labels[service].configure(bg='green')
+                        self.success_vars[service].set(self.success_vars[service].get() + 1)
                     else:
-                        self.status_var.set(f"{service} Not Running (Host: {hostname}, IP: {ip_address}, Port: {port})")
-                        self.fail_var.set(self.fail_var.get() + 1)
+                        self.status_labels[service].configure(bg='red')
+                        self.fail_vars[service].set(self.fail_vars[service].get() + 1)
                 except socket.gaierror:
-                    self.status_var.set(f"Hostname resolution failed")
-                    self.fail_var.set(self.fail_var.get() + 1)
+                    self.status_labels[service].configure(bg='red')
+                    self.fail_vars[service].set(self.fail_vars[service].get() + 1)
                 except Exception as e:
-                    self.status_var.set(f"Error: {str(e)}")
-                    self.fail_var.set(self.fail_var.get() + 1)
+                    self.status_labels[service].configure(bg='red')
+                    self.fail_vars[service].set(self.fail_vars[service].get() + 1)
 
             time.sleep(interval)
 

@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="326c77db-0b34-4309-aa43-1ea7669d6f43" name="Changes" comment="added other service types/ports">
-      <change afterPath="$PROJECT_DIR$/build/main/Analysis-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/BUNDLE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/EXE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/PKG-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/PYZ-00.pyz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/PYZ-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/Tree-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/Tree-01.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/Tree-02.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/base_library.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/main.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/warn-main.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/main/xref-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.app/Contents/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.app/Contents/MacOS/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.app/Contents/Resources/icon-windowed.icns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.app/Contents/_CodeSignature/CodeResources" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.spec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="326c77db-0b34-4309-aa43-1ea7669d6f43" name="Changes" comment="added other service types/ports" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +12,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Sprackles"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2ab5d6f9-c316-416b-bfdc-b05e6c0362a2" />
+        <option name="url" value="https://github.com/Sprackles/Service-Checker.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
@@ -98,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716603122035</updated>
-      <workItem from="1716603124210" duration="2722000" />
+      <workItem from="1716603124210" duration="3028000" />
     </task>
     <task id="LOCAL-00001" summary="added other service types/ports">
       <option name="closed" value="true" />
@@ -108,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716603848796</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added other service types/ports">
+      <option name="closed" value="true" />
+      <created>1716622199985</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716622199985</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
