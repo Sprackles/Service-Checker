@@ -46,4 +46,4 @@ I'm planning to make improvements and add more features.
 ### Running the Tool
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/yourusername/service-checker.git
+   git clone https://github.com/Sprackles/Service-Checker.git
