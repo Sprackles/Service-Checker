@@ -31,7 +31,9 @@ class ServiceCheckerApp:
             "HTTP": 80,
             "HTTPS": 443,
             "FTP": 21,
-            "SSH": 22
+            "SSH": 22,
+            "RDP": 3389,
+            "SMB": 139
         }
 
         self.service_vars = {service: tk.BooleanVar(value=True) for service in self.services}
