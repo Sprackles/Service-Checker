@@ -47,3 +47,18 @@ I'm planning to make improvements and add more features.
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/Sprackles/Service-Checker.git
+2. **Navigate to the project directory**:
+   ```sh
+   cd service-checker
+3. **Run the script**:
+   ```sh
+   python service_checker.py
+
+### Compiling to an Executable
+   To compile the script into a single executable file using Pyinstaller:
+1. **Install pyinstaller**:
+   ```sh
+   pip install pyinstaller
+2. **Compile the script**:
+   ```sh
+   pyinstaller --onefile --windowed service_checker.py
